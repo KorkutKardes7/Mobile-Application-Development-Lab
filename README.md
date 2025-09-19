@@ -1,2 +1,2 @@
 # Mobile-Application-Development-Lab
-A repository for my university class, Mobile Application Development.
+A repository for my university class Mobile Application Development.
