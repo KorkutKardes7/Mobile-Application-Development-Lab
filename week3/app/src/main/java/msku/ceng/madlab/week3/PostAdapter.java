@@ -23,7 +23,7 @@ public class PostAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return postList.size();
     }
 
     @Override
@@ -40,16 +40,15 @@ public class PostAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
         View rowView;
         rowView = inflater.inflate(R.layout.row, null);
-        EditText txtMessage = rowView.findViewById(R.id.textmessage);
-        TextView txtLocaiton = rowView.findViewById(R.id.textLocation);
-        ImageView imgView = rowView.findViewById(R.id.imgView);
+        EditText txtMessage = (EditText) rowView.findViewById(R.id.textmessage);
+        TextView txtLocaiton = (TextView) rowView.findViewById(R.id.textLocation);
+        ImageView imgView = (ImageView) rowView.findViewById(R.id.imgView);
 
         Post post = postList.get(position);
         txtMessage.setText(post.getMessage());
         imgView.setImageBitmap(post.getImage());
         if (post.getLocation() != null){
-            txtLocaiton.setText(post.getLocation().getLatitude() +
-                    " " + post.getLocation().getLongitude());
+            txtLocaiton.setText(String.format("%s %s", post.getLocation().getLatitude(), post.getLocation().getLongitude()));
         }
 
         return rowView;
